@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Online Test — тесты по английскому, математике и русскому языку">
+<title>Online Test — Английский, Математика, Русский</title>
+<link rel="stylesheet" href="css/style.css?v=1">
+<script src="js/script.js?v=1" defer></script>
+</head>
+<body>
+<header class="header">
+  <div class="wrap header__in">
+    <a class="logo" href="index.html"><span class="logo__mark">✓</span><span>Online&nbsp;Test</span></a>
+    <button class="icon-btn" id="btn-theme" type="button" aria-label="Сменить тему">🌙</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="screen-home" class="screen">
+    <div class="hero">
+      <h1>Проверь свои знания</h1>
+      <p>Выбери предмет и сложность. Результат и разбор ошибок — сразу после теста.</p>
+    </div>
+    <div class="panel">
+      <div class="panel__row">
+        <span class="label">Сложность</span>
+        <div class="seg" id="seg-diff" role="group" aria-label="Сложность">
+          <button type="button" class="seg__b is-on" data-d="all">Все</button>
+          <button type="button" class="seg__b" data-d="0">Лёгкий</button>
+          <button type="button" class="seg__b" data-d="1">Средний</button>
+          <button type="button" class="seg__b" data-d="2">Сложный</button>
+        </div>
+      </div>
+      <label class="switch"><input type="checkbox" id="chk-instant" checked><span class="switch__t"></span><span>Показывать правильный ответ сразу</span></label>
+    </div>
+    <div class="grid" id="subjects"></div>
+  </section>
+
+  <section id="screen-quiz" class="screen" hidden>
+    <div class="quiz-top">
+      <button class="btn btn--ghost" id="btn-exit" type="button">← Выйти</button>
+      <div class="timer" id="timer">⏱ 00:00</div>
+    </div>
+    <div class="progress"><div class="progress__bar" id="bar"></div></div>
+    <div class="card">
+      <div class="meta"><span id="q-count">Вопрос 1 из 30</span><span class="badge" id="q-diff">Лёгкий</span></div>
+      <h2 class="q" id="q-text"></h2>
+      <div class="opts" id="options" role="radiogroup"></div>
+      <p class="hint" id="hint" aria-live="polite"></p>
+      <div class="actions"><button class="btn" id="btn-next" type="button">Далее →</button></div>
+    </div>
+  </section>
+
+  <section id="screen-result" class="screen" hidden>
+    <div class="card result">
+      <div class="ring" id="ring"><div class="ring__in"><b id="r-pct">0%</b><small id="r-score">0 / 0</small></div></div>
+      <h2 id="r-title">Результат</h2>
+      <p class="comment" id="r-comment"></p>
+      <div class="stats">
+        <div><b id="r-ok">0</b><span>верно</span></div>
+        <div><b id="r-bad">0</b><span>ошибок</span></div>
+        <div><b id="r-time">00:00</b><span>время</span></div>
+      </div>
+      <div class="actions actions--c">
+        <button class="btn" id="btn-again" type="button">↻ Пройти заново</button>
+        <button class="btn btn--ghost" id="btn-home" type="button">На главную</button>
+      </div>
+    </div>
+    <div class="review-head">
+      <h3>Разбор ответов</h3>
+      <div class="seg" id="seg-rev"><button type="button" class="seg__b is-on" data-f="all">Все</button><button type="button" class="seg__b" data-f="bad">Только ошибки</button></div>
+    </div>
+    <div id="review"></div>
+  </section>
+</main>
+<footer class="footer">Online Test · чистый HTML, CSS и JavaScript</footer>
+</body>
+</html>
